@@ -3,7 +3,9 @@ import cv2
 import time
 
 print("Want to be invisible!!You are at right place:)")
+
 # Capturing Webcam Feed
+
 cap = cv2.VideoCapture(0)
 
 time.sleep(3)
@@ -24,6 +26,7 @@ while(cap.isOpened()):
         break
     
 #Converting from BGR to HSV
+
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     lower_red = np.array([0, 120, 70])
@@ -46,9 +49,11 @@ while(cap.isOpened()):
     final_output = cv2.addWeighted(res1, 1, res2, 1, 0)
 
     cv2.imshow('Hurrey !!', final_output)
+    
     k = cv2.waitKey(10)
     if k == 27:
         break
 
 cap.release()
 cv2.destroyAllWindows()
+
